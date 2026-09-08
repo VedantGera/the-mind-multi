@@ -1,0 +1,13 @@
+{
+  "name": "the-mind-multiplayer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Authoritative real-time multiplayer implementation of The Mind for mobile clients.",
+  "workspaces": ["shared", "server", "mobile"],
+  "scripts": {
+    "build": "npm run build --workspace server",
+    "dev:server": "npm run dev --workspace server",
+    "test": "npm test --workspace server",
+    "typecheck": "npm run typecheck --workspace server"
+  }
+}

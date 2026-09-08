@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: the-mind-server
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build --workspace server
+    startCommand: npm run start --workspace server
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: RECONNECT_GRACE_MS
+        value: "60000"
+      - key: CORS_ORIGIN
+        sync: false

@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "The Mind Online",
+    "slug": "the-mind-online",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#10131d"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.example.themindonline"
+    },
+    "android": {
+      "package": "com.example.themindonline",
+      "adaptiveIcon": {
+        "backgroundColor": "#10131d"
+      }
+    },
+    "plugins": ["expo-secure-store"],
+    "extra": {
+      "serverUrl": "http://localhost:3000"
+    }
+  }
+}
