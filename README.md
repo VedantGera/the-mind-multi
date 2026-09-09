@@ -69,7 +69,7 @@ Then use `npm run ios --workspace mobile` or `npm run android --workspace mobile
 
 ## Web client
 
-The same client can run in a browser. It uses `localStorage` for the reconnect session and connects directly to the Render Socket.IO server.
+The same client runs in a browser. It uses `localStorage` for the reconnect session and connects directly to the Render Socket.IO server.
 
 Build the static site locally:
 
@@ -77,15 +77,13 @@ Build the static site locally:
 npm run build:web
 ```
 
-To host it on Render, create a **Static Site** from this repository with:
+The existing Render Web Service builds and serves this client at its root URL:
 
 ```text
-Build Command:       npm ci && npm run build:web
-Publish Directory:    mobile/dist
-Branch:              main
+https://the-mind-multi.onrender.com/
 ```
 
-The repository's `render.yaml` also defines a `the-mind-web` Static Site for Blueprint-based setup. Friends can then open the generated `https://…onrender.com` URL from Safari, Chrome, or any desktop browser—no Expo Go or Mac is required.
+Friends can open that URL from Safari, Chrome, or any desktop browser—no Expo Go or Mac is required.
 
 ## Verification commands
 
