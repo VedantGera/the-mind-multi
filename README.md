@@ -67,6 +67,26 @@ EXPO_PUBLIC_SERVER_URL=http://192.168.1.20:3000 npm run start --workspace mobile
 
 Then use `npm run ios --workspace mobile` or `npm run android --workspace mobile` after the native toolchains are installed.
 
+## Web client
+
+The same client can run in a browser. It uses `localStorage` for the reconnect session and connects directly to the Render Socket.IO server.
+
+Build the static site locally:
+
+```bash
+npm run build:web
+```
+
+To host it on Render, create a **Static Site** from this repository with:
+
+```text
+Build Command:       npm ci && npm run build:web
+Publish Directory:    mobile/dist
+Branch:              main
+```
+
+The repository's `render.yaml` also defines a `the-mind-web` Static Site for Blueprint-based setup. Friends can then open the generated `https://…onrender.com` URL from Safari, Chrome, or any desktop browser—no Expo Go or Mac is required.
+
 ## Verification commands
 
 ```bash

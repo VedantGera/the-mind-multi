@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: the-mind-server
+    name: the-mind-multi
     runtime: node
     plan: free
     buildCommand: npm ci && npm run build --workspace server
@@ -13,3 +13,9 @@ services:
         value: "60000"
       - key: CORS_ORIGIN
         value: "*"
+
+  - type: web
+    name: the-mind-web
+    runtime: static
+    buildCommand: npm ci && npm run build:web
+    staticPublishPath: mobile/dist

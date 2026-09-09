@@ -4,7 +4,7 @@
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": ["ES2022"],
+    "lib": ["ES2022", "DOM"],
     "allowJs": false,
     "noEmit": true,
     "types": ["react", "react-native"]

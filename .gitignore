@@ -4,6 +4,7 @@ dist/
 .expo-shared/
 coverage/
 *.log
+*.apk
 .DS_Store
 .env
 .env.*

@@ -19,9 +19,25 @@
         "backgroundColor": "#10131d"
       }
     },
-    "plugins": ["expo-secure-store"],
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-secure-store"
+    ],
     "extra": {
-      "serverUrl": "https://the-mind-multi.onrender.com"
+      "serverUrl": "https://the-mind-multi.onrender.com",
+      "eas": {
+        "projectId": "9f71d7b4-4cf7-4201-be98-d400b298b757"
+      }
+    },
+    "owner": "vedantgera",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/9f71d7b4-4cf7-4201-be98-d400b298b757"
     }
   }
 }
