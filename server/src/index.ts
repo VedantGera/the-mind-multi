@@ -53,11 +53,13 @@ export function createGameServer(options: GameServerOptions = {}): GameServerRun
   const app = express();
   const httpServer = createServer(app);
   const configuredCorsOrigins = options.corsOrigins ?? parseCorsOrigins(process.env.CORS_ORIGIN);
-  const corsOrigin: string[] | boolean = configuredCorsOrigins.length > 0
-    ? configuredCorsOrigins
-    : process.env.NODE_ENV === 'production'
-      ? false
-      : true;
+  const corsOrigin: string[] | boolean = configuredCorsOrigins.includes('*')
+    ? true
+    : configuredCorsOrigins.length > 0
+      ? configuredCorsOrigins
+      : process.env.NODE_ENV === 'production'
+        ? false
+        : true;
   const io: GameIo = new Server(httpServer, {
     cors: {
       origin: corsOrigin,
