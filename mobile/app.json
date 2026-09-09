@@ -21,7 +21,7 @@
     },
     "plugins": ["expo-secure-store"],
     "extra": {
-      "serverUrl": "http://localhost:3000"
+      "serverUrl": "https://the-mind-multi.onrender.com"
     }
   }
 }
