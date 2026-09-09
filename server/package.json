@@ -4,7 +4,7 @@
   "private": true,
   "description": "Authoritative Socket.IO server for The Mind.",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && cd .. && npm run build:web --workspace mobile",
     "dev": "tsx watch src/index.ts",
     "start": "node ../dist/server/src/index.js",
     "test": "vitest run",

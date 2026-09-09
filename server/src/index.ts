@@ -1,6 +1,8 @@
 import cors from 'cors';
 import express, { Request, Response } from 'express';
+import { existsSync } from 'node:fs';
 import { createServer, Server as HttpServer } from 'node:http';
+import { resolve } from 'node:path';
 import { Server, Socket } from 'socket.io';
 import {
   ClientToServerEvents,
@@ -83,6 +85,7 @@ export function createGameServer(options: GameServerOptions = {}): GameServerRun
   app.get('/healthz', (_request: Request, response: Response) => {
     response.status(200).json({ status: 'ok' });
   });
+  mountWebClient(app);
 
   let roomManager: RoomManager;
   const reconnectGraceMs = options.reconnectGraceMs
@@ -380,6 +383,22 @@ function parseCorsOrigins(value: string | undefined): string[] {
   return value
     ? value.split(',').map((origin) => origin.trim()).filter((origin) => origin.length > 0)
     : [];
+}
+
+function mountWebClient(app: express.Express): void {
+  const candidates = [
+    resolve(process.cwd(), '../mobile/dist'),
+    resolve(process.cwd(), 'mobile/dist'),
+    resolve(__dirname, '../../../mobile/dist'),
+  ];
+  const webDist = candidates.find((candidate) => existsSync(resolve(candidate, 'index.html')));
+  if (!webDist) {
+    return;
+  }
+  app.use(express.static(webDist));
+  app.get('/', (_request: Request, response: Response) => {
+    response.sendFile(resolve(webDist, 'index.html'));
+  });
 }
 
 function parsePositiveInteger(value: string, name: string): number {
